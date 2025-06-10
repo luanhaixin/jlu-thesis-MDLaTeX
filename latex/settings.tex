@@ -1,0 +1,216 @@
+% \usepackage[UTF8]{ctex}
+\usepackage{mathptmx}
+\usepackage{amsmath, amsthm, amssymb} %数学符号等相关宏包
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} %插入图片所需宏包
+\usepackage[labelsep=space,labelfont=bf]{caption}
+\usepackage{xspace} %提供一些好用的空格命令
+\usepackage{url} %更好的超链接显示
+\usepackage{float} %图片与表格的更好排版
+\usepackage{ulem} %更好的下划线
+\usepackage{setspace}% 行距等
+\usepackage[a4paper,top=2.8cm, bottom=3.0cm, left=3.0cm, right=3.0cm]{geometry} %设置页边距
+\usepackage{booktabs}
+\usepackage{indentfirst}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{makecell} %表格内换行
+\usepackage{svg}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{abstract}
+\usepackage{calc}
+\usepackage{titletoc} % 设置目录格式
+\usepackage{emptypage}
+\usepackage{atbegshi}
+\usepackage{blindtext}
+\usepackage{times}
+\usepackage{xcolor} %彩色的文字
+\usepackage[colorlinks=true, linkcolor=black, citecolor=black, urlcolor=black,bookmarksnumbered=true]{hyperref}
+\usepackage{cleveref} %交叉引用
+\usepackage{listings}%code highlighting
+\usepackage{bookmark}
+%使用biblatex管理文献，输出格式使用gb7714-2015标准，后端为biber
+\usepackage[backend=biber,style=gb7714-2015,hyperref=true]{biblatex}
+\usepackage{pdfpages}
+
+% 浮动体排版参数设置
+\renewcommand{\floatpagefraction}{0.8} % 让页面至少 80% 是内容，避免图片单独占一页
+\renewcommand{\textfraction}{0.1} % 让文字至少占 10% 页面
+\renewcommand{\topfraction}{0.9} % 允许图片最多占 90% 页面
+\renewcommand{\bottomfraction}{0.9} % 允许底部最多 90% 是图片
+
+% 设置公式段前后间距
+\everydisplay{\abovedisplayskip=15pt \belowdisplayskip=10pt}
+
+% 列表项间距设置更紧凑
+\setlist[enumerate]{itemsep=-1pt, topsep=0pt}
+\setlist[itemize]{itemsep=-1pt, topsep=0pt}
+
+% 避免行末长单词溢出页面
+\sloppy
+
+% 设置章节编号深度为 6
+\setcounter{secnumdepth}{6}
+
+% 设置正文为小4号字
+\renewcommand{\normalsize}{\songti\zihao{-4}}
+
+% 设置宋体为主字体，允许伪粗体与伪斜体
+\setCJKfamilyfont{zhsong}[AutoFakeBold={2.5}, AutoFakeSlant=0.2]{SimSun}
+\renewcommand*{\songti}{\CJKfamily{zhsong}}
+
+% 指定中英文字体
+\setCJKmainfont{SimSun}
+\setmainfont{Times New Roman}
+
+% 允许公式分页
+\allowdisplaybreaks
+
+% 设置 1.5 倍行距
+\setstretch{1.5}
+
+% 表格列间距设置
+\setlength{\tabcolsep}{1mm}{}
+
+% 图表编号按章节编号
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+% 设置摘要标题与正文样式
+\renewcommand{\abstractnamefont}{\heiti\zihao{4}}
+\renewcommand{\abstracttextfont}{\zihao{-4}}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+
+
+% 设置章节目录书签格式
+\makeatletter
+\bookmarksetup{%
+    addtohook={%
+    \ifnum\toclevel@section=\bookmarkget{level}\relax
+        \renewcommand*{\numberline}[1]{第 #1 章 }%
+    \fi
+    },
+}
+\makeatother
+
+% 设置章节标题格式
+\titleformat
+{\section}
+{\centering\bfseries\songti\zihao{3}}
+{第 \thesection 章}
+{1em}
+{}
+
+\titleformat
+{\subsection}
+{\bfseries\songti\zihao{4}}
+{\thesubsection}
+{1em}
+{}
+
+\titleformat
+{\subsubsection}
+{\bfseries\songti\zihao{-4}}
+{\thesubsubsection}
+{1em}
+{}
+
+\titleformat
+{\paragraph}
+{\bfseries\songti\zihao{-4}}
+{\theparagraph}
+{1em}
+{}
+
+\titleformat
+{\subparagraph}
+{\bfseries\songti\zihao{-4}}
+{\thesubparagraph}
+{1em}
+{}
+
+
+\titlespacing{\subparagraph}{0pt}{1ex}{1em}  
+
+% 自定义正文页码计数器
+\newcounter{contentpage}
+\setcounter{contentpage}{1}
+
+% 每页开始前计数器+1
+\AtBeginShipout{%
+  \addtocounter{contentpage}{1}
+}
+
+% 页码对齐到奇数页（常用于章节起始页）
+\newcommand{\alignOddPage}{
+    % \cleardoublepage
+    \ifodd\value{page}
+        
+    \else
+        \thispagestyle{empty}
+        \null
+        \newpage
+        \addtocounter{contentpage}{-1}
+    \fi
+}
+
+   
+% 设置页眉页脚样式
+\pagestyle{fancy}
+\fancyhf{} % 先清空样式
+\fancyhead[L]{}
+\fancyhead[R]{}
+\fancyhead[C]{\vspace{0.4em}\zihao{-5}\kaishu\leftmark} % 页眉中间显示章节标题
+\setlength{\headheight}{15.6404pt} % 页眉高度设置
+
+\fancyfoot[R]{\bfseries ~\thecontentpage~} % 页脚右侧显示页码
+
+
+
+
+% 定义罗马数字页码显示
+\newcommand{\RomanNumbering}{
+    \fancyfoot[R]{\bfseries ~\Roman{contentpage}~}
+}
+% 定义阿拉伯数字页码显示
+\newcommand{\arabicNumbering}{
+    \fancyfoot[R]{\bfseries ~\arabic{contentpage}~}
+}
+% 设置章节标题书签格式（用于页眉显示）
+\renewcommand{\sectionmark}[1]{\markboth{第~\thesection~章~~#1}{}}
+
+% 自定义三种对齐表格列类型（左、中、右）
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% 定义空白页命令
+\newcommand{\emptypage}{
+\null
+\thispagestyle{empty}
+\newpage
+}
+
+% 设置目录中各级标题格式
+\titlecontents{section}
+[0pt] % 左侧间距，增大这个值会加大subsection的缩进
+{\addvspace{1.5pt}\filright\bf} % above code
+{\contentspush{第\thecontentslabel\ 章\quad}} % numbered entry format
+{} % numberless entry format
+{\titlerule*[10pt]{.}\contentspage}  % filler page format
+
+\titlecontents{subsection}
+[1em] 
+{\addvspace{0.5pt}} 
+{\contentspush{\thecontentslabel\ }} 
+{} 
+{\titlerule*[10pt]{.}\contentspage} 
+
+\titlecontents{subsubsection}
+[2em] 
+{\addvspace{0.5pt}} 
+{\contentspush{\thecontentslabel\ }} 
+{} 
+{\titlerule*[10pt]{.}\contentspage} 

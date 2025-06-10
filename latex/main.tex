@@ -1,0 +1,56 @@
+\documentclass[UTF8, 12pt, a4paper, oneside]{ctexart}
+
+% 标题与作者信息可以根据需要填写
+\title{ }
+\author{ }
+
+% 加载外部 settings.tex 文件，通常包含宏包加载、格式设定等统一设置
+\input{settings.tex} 
+
+% 加载参考文献数据库文件（BibTeX 格式）
+\addbibresource{../../reference.bib} 
+
+\begin{document}
+
+\input{pagesInsertAtStart.tex} 
+
+% 使用罗马数字编号用于摘要部分
+\RomanNumbering
+\setcounter{contentpage}{1}
+
+% 摘要部分不显示页眉横线
+\renewcommand{\headrulewidth}{0pt} 
+
+% 插入中文摘要，并添加书签
+\pdfbookmark[1]{摘要}{Abstract_CN}
+\include{article/SummaryCN}
+% 插入英文摘要，并添加书签
+\pdfbookmark[1]{Abstract}{Abstract_EN}
+\include{article/SummaryEN}
+
+% 恢复页眉横线样式（设置为 0.7pt）
+\renewcommand{\headrulewidth}{0.7pt}
+
+% 插入目录，并添加书签
+\pdfbookmark[1]{目录}{contents}
+{
+\newpage
+\zihao{4} 
+\tableofcontents  
+\newpage
+}
+
+% 若希望正文第一章出现在单页（奇数页）上，可启用以下代码插入空白页
+% \emptypage
+
+% 若要自动对齐单双页（如双面打印要求），可启用以下代码
+% \alignOddPage
+
+% 正文开始，使用阿拉伯数字页码
+\arabicNumbering
+\setcounter{contentpage}{1}
+\setcounter{page}{1}
+% 加载正文内容（pages.tex 中应包含各章节）
+\input{pages.tex} 
+
+\end{document}
