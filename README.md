@@ -45,7 +45,6 @@ thesis
 ├── page_config.json
 ├── reference.bib
 └── run.ps1
-
 ```
 
 
@@ -112,12 +111,10 @@ thesis
     { "path": "./md/summaryCN.md", "name": "摘要" },
     { "path": "./md/summaryEN.md", "name": "Abstract" }
   ],
-
   "customPage": [
     { "path": "./md/Introduction.md" },
     { "path": "./md/charpter2.md" }
   ],
-
   "noHeadPage": [
     { "path": "./md/Reference.md", "name": "参考文献" },
     { "path": "./md/Acknowledgement.md", "name": "致谢" }
