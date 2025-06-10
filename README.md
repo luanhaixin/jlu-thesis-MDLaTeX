@@ -103,27 +103,26 @@ thesis
 
 ```json
 {
-  "pagesInsertAtStart": [
-    { "path": "./word/cover.pdf", "name": "封面" },
-    { "path": "./word/originStatement.pdf", "name": "原创性声明" },
-    { "path": "./word/authorizationStatement.pdf", "name": "使用授权声明" }
-  ],
-  "summaryPage": [
-    { "path": "./md/summaryCN.md", "name": "摘要" },
-    { "path": "./md/summaryEN.md", "name": "Abstract" }
-  ],
+  "pagesInsertAtStart": [
+    { "path": "./word/cover.pdf", "name": "封面" },
+    { "path": "./word/originStatement.pdf", "name": "原创性声明" },
+    { "path": "./word/authorizationStatement.pdf", "name": "使用授权声明" }
+  ],
+  "summaryPage": [
+    { "path": "./md/summaryCN.md", "name": "摘要" },
+    { "path": "./md/summaryEN.md", "name": "Abstract" }
+  ],
 
-  "customPage": [
-    { "path": "./md/Introduction.md" },
-    { "path": "./md/charpter2.md" }
-  ],
+  "customPage": [
+    { "path": "./md/Introduction.md" },
+    { "path": "./md/charpter2.md" }
+  ],
 
-  "noHeadPage": [
-    { "path": "./md/Reference.md", "name": "参考文献" },
-    { "path": "./md/Acknowledgement.md", "name": "致谢" }
-  ]
+  "noHeadPage": [
+    { "path": "./md/Reference.md", "name": "参考文献" },
+    { "path": "./md/Acknowledgement.md", "name": "致谢" }
+  ]
 }
-
 ```
 
   
