@@ -76,13 +76,19 @@ thesis
 
 ### 快速开始
 
-**首先安装一下 Python 依赖**
+**首先进入项目根目录**
+
+```powershell
+cd path/to/jlu-thesis-mdlatex
+```
+
+**然后安装一下 Python 依赖**
 
 ```powershell
 pip install -r requirements.txt
 ```
 
-**然后以后就可以直接在项目根目录中运行：**
+**然后以后就可以直接在项目根目录中运行进行论文渲染：**
 
 ```powershell
 ./run.ps1
