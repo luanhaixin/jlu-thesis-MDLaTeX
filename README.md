@@ -385,6 +385,10 @@ Zotero 是一款强大的文献管理工具，能帮你轻松收集、整理和�
 4. 将生成的 `reference.bib` 文件放入项目根目录下。
 
 
+## 关于双面打印的问题
+
+该框架默认是单面打印的模式。如果要双面打印，需要去自己去折腾一下 latex/setting.tex 和 latex/main.tex 去弄一下奇偶页的问题，毕竟有各种要求吗，例如正文开始页码必须是奇数页的问题。 
+
 ## 最后说明
 
 本项目的 LaTeX 源码派生自 [JLU-SE-Thesis-Template](https://github.com/OceanPresentChao/JLU-SE-Thesis-Template)，我做了一些魔改，目的就是让大家少折腾格式，多专注在内容上。一行命令出 PDF，论文写作从未如此轻松！🎉
