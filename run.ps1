@@ -1,5 +1,5 @@
 ﻿Write-Host "--- 启动论文排版自动化流程 ---" # 更积极的开场
-python3 ./py/md2tex.py
+python ./py/main.py
 cd latex
 Write-Host "--- 首次编译：构建文档结构与解析引用 ---" # 解释目的，更专业
 xelatex -aux-directory=build --interaction=nonstopmode main.tex | findstr /R /C:"^\s*\[[0-9][0-9]*\]"
